@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Barcode/</title>
+        <script>
+            window.matchMedia('print').addListener(function (mql) {
+                if (!mql.matches) {
+                    window.top.close();
+                }
+            });
+        </script>
+    </head>
+    <body onload="print()">
+        <img
+            src="http://192.168.86.28:1234/css/images/book_barcodes/{barcode number}.png"
+        />
+    </body>
+</html>

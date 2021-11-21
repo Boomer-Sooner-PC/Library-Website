@@ -1,0 +1,18 @@
+{
+  "name": "libsystem",
+  "version": "1.0.0",
+  "description": "a library system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manders",
+  "license": "ISC",
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^3.1.3",
+    "canvas": "^2.8.0",
+    "express-session": "^1.17.2",
+    "jsbarcode": "^3.11.4"
+  }
+}

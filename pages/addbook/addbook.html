@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Book</title>
+        <link rel="stylesheet" href="/css/fonts/amble/amble.css" />
+        <link rel="stylesheet" href="/css/addbook.css" />
+        <script>
+            function press() {
+                let Name = document.getElementById('Name').value;
+                let Category = document.getElementById('Category').value;
+                let Author = document.getElementById('Author').value;
+                let Description = document.getElementById('Description').value;
+                let Age = document.getElementById('Age').value;
+                let ImageURL = document.getElementById('Image URL').value;
+
+                let lst = [
+                    'Name',
+                    'Category',
+                    'Author',
+                    'Description',
+                    'Age',
+                    'Image URL',
+                ];
+                for (id of lst) {
+                    document.getElementById(id).value = '';
+                }
+
+                obj = {Name, Category, Author, Description, Age, ImageURL};
+                window.open(
+                    `http://192.168.86.28:1234/admin/addbook?${JSON.stringify(
+                        obj
+                    )}`
+                );
+            }
+        </script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="box box-1">Upload Book</div>
+            <div class="box box-2">
+                <form id="form" onsubmit="return false;">
+                    <div>
+                        <label>Name</label>
+                        <input type="text" name="Name" id="Name" />
+                    </div>
+                    <div>
+                        <label>Category</label>
+                        <input type="text" name="Category" id="Category" />
+                    </div>
+                    <div>
+                        <label>Author</label>
+                        <input type="text" name="Author" id="Author" />
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <input
+                            type="text"
+                            name="Description"
+                            id="Description"
+                        />
+                    </div>
+                    <div>
+                        <label>Age</label>
+                        <input type="text" name="Age" id="Age" />
+                    </div>
+                    <div>
+                        <label>Image URL</label>
+                        <input type="text" name="Image URL" id="Image URL" />
+                    </div>
+                    <div><button onclick="press();">Submit</button></div>
+                </form>
+            </div>
+            <div class="box box-3">
+                <div class="flex">
+                    <div class="box">
+                        <a
+                            href="http://192.168.86.28:1234/admin/admin_portal?"
+                            class="footerTxt"
+                            >Admin Portal</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

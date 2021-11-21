@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Library Card</title>
+        <link rel="stylesheet" href="/css/fonts/amble/amble.css" />
+        <link rel="stylesheet" href="/css/create_account.css" />
+        <script>
+            function press() {
+                let name = document.getElementById('name').value;
+                let contact = document.getElementById('contact').value;
+                let otherNames = document.getElementById('other names').value;
+
+                document.getElementById('name').value = '';
+                document.getElementById('contact').value = '';
+                document.getElementById('other names').value = '';
+
+                obj = {
+                    name: name,
+                    contact: contact,
+                    otherNames: otherNames,
+                };
+                window.open(
+                    `http://192.168.86.28:1234/admin/create_account?${JSON.stringify(
+                        obj
+                    )}`
+                );
+            }
+        </script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="box box-1"></div>
+            <div class="box box-2">
+                <form id="form" onsubmit="return false;">
+                    <div>
+                        <label>Full Name</label>
+                        <input type="text" name="Full Name" id="name" />
+                    </div>
+                    <div>
+                        <label>Phone Number / Email</label>
+                        <input type="text" name="Identification" id="contact" />
+                    </div>
+                    <div>
+                        <label>Other Names</label>
+                        <input
+                            type="text"
+                            name="Other Names"
+                            id="other names"
+                        />
+                    </div>
+                    <div>
+                        <button onclick="press();">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="box box-3">
+                <div class="flex">
+                    <div class="box">
+                        <a
+                            href="http://192.168.86.28:1234/admin/admin_portal"
+                            class="footerTxt"
+                            >Admin Portal</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

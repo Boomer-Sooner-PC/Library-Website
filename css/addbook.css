@@ -1,0 +1,39 @@
+body {
+  background-color: #aec5eb;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 95vw;
+  grid-template-rows: 6vh auto 10vh;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100vh;
+  gap: 10px 10px;
+}
+
+.box-1 {
+  font-family: amblebold;
+  grid-area: header;
+  background-color: #3a405a;
+}
+
+.box-2 {
+  font-family: amblebold;
+  align-content: center;
+}
+
+.box-3 {
+  grid-area: footer;
+  background-color: #3a405a;
+}
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footerTxt {
+  color: #f9dec9;
+  font-family: amblebold;
+}

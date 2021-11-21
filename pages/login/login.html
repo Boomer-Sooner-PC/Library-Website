@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="/css/fonts/amble/amble.css" />
+        <link rel="stylesheet" href="/css/login.css" />
+
+        <script>
+            async function output() {
+                let input = document.getElementById('Pass').value;
+                const fpPromise = FingerprintJS.load();
+                // Get the visitor identifier when you need it.
+                fpPromise
+                    .then((fp) => fp.get())
+                    .then((result) => {
+                        // This is the visitor identifier:
+                        const visitorId = result.visitorId;
+
+                        url = `http://192.168.86.28:1234/login?{"password":"${input}","visitorId":"${visitorId}"}`;
+                        window.location.replace(url);
+                    });
+            }
+        </script>
+        <script
+            async
+            src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"
+        ></script>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="box box-1"></div>
+            <div class="box box-2">
+                <form id="form" onsubmit="return false;">
+                    <div>
+                        <label>Password</label>
+                        <input type="text" name="Password" id="Pass" />
+                    </div>
+                    <div>
+                        <input type="submit" onclick="output();" />
+                    </div>
+                </form>
+            </div>
+            <div class="box box-3">
+                <div class="flex">
+                    <div class="box">
+                        <a
+                            href="http://192.168.86.28:1234/admin/admin_portal?"
+                            class="footerTxt"
+                            >Admin Portal</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
